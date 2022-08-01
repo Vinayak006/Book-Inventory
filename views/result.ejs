@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: black;
+                color: white;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+                background-color: blue;
+                border: 1px solid white;
+            }
+        </style>
+    </head>
+    <body>
+        <h2> <%- result %> </h2>
+        <table>
+            <% if(process == 'gb'){ %>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>year</th>
+            </tr>
+                <tr>
+                    <td><%- helo[0].id %> </td>
+                    <td><%- helo[0].name %> </td>
+                    <td><%- helo[0].author %> </td>
+                    <td><%- helo[0].year %> </td>
+                </tr>
+            <% } %>
+            <% if( process == 'sb'){ %>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>year</th>
+                </tr>
+                <% for(const [key,value] of Object.entries(helo)){ %>
+                    <tr>
+                        <td><%- value.id %> </td>
+                        <td><%- value.name %> </td>
+                        <td><%- value.author %> </td>
+                        <td><%- value.year %> </td>
+                    </tr>
+                <% } %> 
+            <% } %>  
+        </table><br>
+        <a href="/">HOME</a> 
+        <% if(process == 'audb'){ %>
+            <a href="/show_book">SHOW</a> 
+        <% } %> 
+    </body>
+</html>

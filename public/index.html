@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            h2{ color: grey; }
+            button{ background-color: blue; color: white; }
+            button:hover{ cursor: pointer; }
+        </style>
+    </head>
+    <body style="background-color: black;color: white">
+        <main>
+            <h2>create --></h2>
+            <form action="/add_book" method="post">
+                <input type="text" placeholder="Enter Book Id" name="id" class="bookid"><br>
+                <input type="text" name="name" id="bookname" placeholder="Enter Book name" required><br>
+                <input type="text" name="author" id="bookauthor" placeholder="Enter Author name" required><br>
+                <input type="text" name="year" id="bookyear" placeholder="Enter year" required><br><br>
+                <button>ADD book</button>
+            </form>
+            <h2>read --></h2>
+            <form>
+                <input type="text" placeholder="Enter Book Id" name="id" class="bookid">
+                <button formaction="/get_book">Search</button><br>
+                (or) <br>
+                <button formaction="/show_book">SHOW all books</button>
+            </form>
+            <h2>update --></h2>
+            <form action="/update_book" method="get">
+                <input type="text" name= "id" class="bookid" placeholder="Enter Book Id" required><br><br>
+                <button>UPDATE book</button>
+            </form>
+            <h2>delete --></h2>
+            <form action="/delete_book" method="post">
+                <input type="text" name= "id" class="bookid" placeholder="Enter Book Id" required><br><br>
+                <button>DELETE book</button>
+            </form>
+        </main>
+        <script src="main.js"></script>
+        <script>
+            for(let i=0; i<4; i++){
+                bookid[i].setAttribute("pattern", "[0-9]+");
+                bookid[i].setAttribute("oninvalid", "setCustomValidity('Enter valid id')");
+                bookid[i].setAttribute("oninput", "setCustomValidity('')");
+                bookid[i].setAttribute("autocomplete", "off");                  
+            }
+        </script>
+    </body>
+</html>
+    <!-- <form action="/check" method="post">
+        <label for="id">Book ID: </label>
+        <input type="text" size="10" name="id"> <br>
+        <label for="name">Name: </label>
+        <input type="text" size="30" name="name"> <br>
+        <label for="author">Author: </label>
+        <input type="text" size="30" name="author"> <br>
+        <label for="year">Year</label>
+        <input type="text" size="10" name="year"> <br>
+        <input type="submit" name="submit">
+    </form> -->
